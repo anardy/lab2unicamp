@@ -1,6 +1,6 @@
 Help
 
-Para baixar o projeto
+# Para baixar o projeto
 
 git clone https://github.com/anardy/lab2unicamp.git lab2
 
