@@ -4,8 +4,6 @@ package br.unicamp.exemplo.steps;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import org.assertj.core.api.Assertions;
-
 import br.unicamp.exemplo.Endereco;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -37,5 +35,10 @@ public class EnderecoSteps {
     public void os_correios_retorna_o_endereco_completo_do_usuario(String endereco) throws Throwable {
         assertEquals(endereco, this.endereco.getEndereco());
     }
+    
+    // o sistema salva o endereco na base de dados chamando o metodo que esta no DAO
+    
+    // fazer um teste passando um CEP invalido e lança a classe CEPInvalidoException 
+    
     
 }

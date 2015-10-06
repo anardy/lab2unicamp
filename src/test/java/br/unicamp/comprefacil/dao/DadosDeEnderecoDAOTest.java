@@ -6,9 +6,9 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.*;
 import org.mockito.MockitoAnnotations;
 
-public class DadosdeEntregaDAOTest {
+public class DadosDeEnderecoDAOTest {
 	@Mock
-	private DadosDeEntregaDAO dao;
+	private DadosDeEnderecoDAO dao;
 	
 	@Before
 	public void init() {
@@ -17,6 +17,6 @@ public class DadosdeEntregaDAOTest {
 	
 	@Test
 	public void saveDadosDeEntrega() {
-		when(dao.saveDadosDeEntrega(10.0, 2)).thenReturn(true);
+		when(dao.saveDadosEndereco("01001-000", "Praça da Sé")).thenReturn(true);
 	}
 }
