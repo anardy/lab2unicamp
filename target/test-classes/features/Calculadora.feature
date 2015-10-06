@@ -1,5 +1,5 @@
 Feature: Calculator 
-	As a user
+  As a user
   I want to use a basic calculator
   So that I dont need to calculate myself
 
