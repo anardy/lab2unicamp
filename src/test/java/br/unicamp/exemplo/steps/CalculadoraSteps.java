@@ -18,12 +18,12 @@ public class CalculadoraSteps {
     private Throwable throwable;
 
     @Before
+    @Given("^I have a calculator$")
     public void setUp() {
     	calculadora = new Calculadora();
     	throwable = null;
     }
 
-    @Given("^I have a calculator$")
     public void i_have_a_calculator() throws Throwable {
         assertNotNull(calculadora);
     }
