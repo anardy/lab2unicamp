@@ -4,7 +4,8 @@ Feature: CalculaFrete
   Quero calcular o preço e prazo de entrega do frete, incluindo embalagem
   
   Scenario: Cálculo de Preço e Prazo de entrega do Frete, formato da encomenda em envelope.
-     Given Informo o tipo de serviço
+     Given Usuário já adicionou ao carrinho no mínimo um produto 
+     And Informou o tipo de serviço de entrega
      And O CEP do usuario é conhecido pelo sistema
      And O CEP da CompreFacil é conhecido pelo sistema
      And O peso é inferior ou igual à 1kg
@@ -23,7 +24,8 @@ Feature: CalculaFrete
 		
 
   Scenario: Cálculo de Preço e Prazo de entrega do Frete, formato da encomenda diferente de envelope.
-     Given Informo o tipo de serviço
+     Given Usuário já adicionou ao carrinho no mínimo um produto 
+     And Informou o tipo de serviço de entrega
      And O CEP do usuario é conhecido pelo sistema
      And O CEP da CompreFacil é conhecido pelo sistema
      And O peso dos produtos são conhecidos pelo sistema 
@@ -42,7 +44,8 @@ Feature: CalculaFrete
 		
 
  Scenario: Cálculo de Preço do Frete, formato da encomenda em envelope.
-     Given Informo o tipo de serviço
+     Given Usuário já adicionou ao carrinho no mínimo um produto 
+     And Informou o tipo de serviço de entrega
      And O CEP do usuario é conhecido pelo sistema
      And O CEP da CompreFacil é conhecido pelo sistema
      And O peso é inferior ou igual à 1kg
@@ -61,7 +64,8 @@ Feature: CalculaFrete
 		
 
   Scenario: Cálculo de Preço do Frete, formato da encomenda diferente de envelope.
-     Given Informo o tipo de serviço
+     Given Usuário já adicionou ao carrinho no mínimo um produto 
+     And Informou o tipo de serviço de entrega
      And O CEP do usuario é conhecido pelo sistema
      And O CEP da CompreFacil é conhecido pelo sistema
      And O peso dos produtos são conhecidos pelo sistema 
@@ -79,7 +83,8 @@ Feature: CalculaFrete
 		| null(fixo)  |null(fixo)| 40010 (SEDEX Varejo)|  11092899  | 134068466	  |  0,8kg	|1(Rolo/Prisma) | 	   32cm		 |    0,6cm  |	 36,7cm   |     4cm     |   N (fixo)    |       0 (fixo)    |	   S (fixo)		  |
 		
  Scenario: Cálculo de Prazo de entrega do Frete
-     Given Informo o tipo de serviço
+     Given Usuário já adicionou ao carrinho no mínimo um produto 
+     And Informou o tipo de serviço de entrega
      And O CEP do usuario é conhecido pelo sistema
      And O CEP da CompreFacil é conhecido pelo sistema
      When O sistema envia os dados aos Correios
