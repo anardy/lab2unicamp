@@ -5,4 +5,4 @@ Feature: Endereco
 Scenario: Buscar endereco
 	Given O CEP do usuario e conhecido pelo sistema
 	When O sistema faz a busca do endereco nos correios
-	Then Os correios retorna o endereco completo do usuario
+	Then Os correios retorna o endereco completo do usuario "Praça da Se"

@@ -1,17 +1,24 @@
 package br.unicamp.exemplo;
 
+import br.unicamp.comprefacil.dao.DadosDeEnderecoDAO;
+
 public class Endereco {
 	
 	private String cep;
 	private String endereco;
+	private DadosDeEnderecoDAO dao;
 	
-	public Endereco(String cep) {
-		this.cep = cep;
+	public Endereco(DadosDeEnderecoDAO dadosDeEnderecoDAO) {
+		this.dao = dadosDeEnderecoDAO;
 	}
 
     public void buscar() {
     	// TODO: utilizar o WireMock para fazer mock desse serviço. 	
-        endereco = "{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\"}";
+        endereco = "Praça da Se";
+    }
+    
+    public void salvarEndereco() {
+    	this.dao.saveDadosEndereco(endereco, cep);
     }
 
 	public String getCep() {
