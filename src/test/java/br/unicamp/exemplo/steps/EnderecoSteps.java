@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotEquals;
 
 import org.mockito.Mockito;
 
-import br.unicamp.comprefacil.dao.DadosDeEnderecoDAO;
 import br.unicamp.exemplo.Endereco;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
@@ -21,7 +20,7 @@ public class EnderecoSteps {
     @Before
     public void setUp() {
     	// não precisa desse Mock aqui.. mas só para deixar de exemplo de como faz.. vamos usar no calculo de frete
-    	endereco = new Endereco(Mockito.mock(DadosDeEnderecoDAO.class));
+    	endereco = new Endereco();
     	throwable = null;
     }
 
@@ -39,7 +38,6 @@ public class EnderecoSteps {
     @Entao("^Os correios retorna o endereco completo do usuario \"([^\"]*)\"$")
     public void os_correios_retorna_o_endereco_completo_do_usuario(String endereco) throws Throwable {
         assertEquals(endereco, this.endereco.getEndereco());
-        this.endereco.salvarEndereco();
     }
     
     // o sistema salva o endereco na base de dados chamando o metodo que esta no DAO

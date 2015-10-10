@@ -17,9 +17,9 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
         plugin = { "pretty", "html:target/cucumber" },
         glue = "br.unicamp.exemplo.steps",
-        features = "classpath:features/Endereco.feature"
+        features = "classpath:features/Calculafrete.feature"
 )
-public class RunEnderecoTest {
+public class RunCalculafreteTest {
 	private static WireMockServer wireMockServer;
 	
 	 @BeforeClass
