@@ -1,24 +1,16 @@
 package br.unicamp.exemplo.steps;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.mockito.Mockito.*;
-
 import br.unicamp.exemplo.Calculafrete;
-import br.unicamp.exemplo.Endereco;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
-import cucumber.api.java.pt.E;
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Entao;
-import java.util.LinkedList;
 
 public class CalculafreteSteps {
 
     private Throwable throwable;
     private Calculafrete calculafrete;
-//    private 
     
     @Before
     public void setUp() {
