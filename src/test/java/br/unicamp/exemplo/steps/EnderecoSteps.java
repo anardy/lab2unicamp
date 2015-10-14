@@ -4,8 +4,6 @@ package br.unicamp.exemplo.steps;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import org.mockito.Mockito;
-
 import br.unicamp.exemplo.Endereco;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
@@ -19,7 +17,6 @@ public class EnderecoSteps {
     
     @Before
     public void setUp() {
-    	// não precisa desse Mock aqui.. mas só para deixar de exemplo de como faz.. vamos usar no calculo de frete
     	endereco = new Endereco();
     	throwable = null;
     }
