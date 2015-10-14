@@ -15,11 +15,10 @@ public class Endereco {
 	private String cep;
 	private String endereco;
 
-	public String buscar() {
-		// TODO: utilizar o WireMock para fazer mock desse serviço.
+	public void buscar() {
 		StringBuffer result = new StringBuffer();
 		HttpClient client = HttpClientBuilder.create().build();
-		String url = "http://localhost:8089/viacep/ws/01001000/json/"; // URL DO WIREMOCK
+		String url = "http://localhost:8089/viacep/ws/01001000/json/";
 		HttpGet request = new HttpGet(url);
 		try {
 			HttpResponse response = client.execute(request);
@@ -36,7 +35,7 @@ public class Endereco {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return result.toString();
+		this.setEndereco(result.toString());
 	}
 
 	public String getCep() {

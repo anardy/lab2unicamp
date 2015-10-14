@@ -36,7 +36,8 @@ public class RunEnderecoTest {
 			stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
 			        .willReturn(aResponse()
 			        .withHeader("Content-Type", "text/plain")
-			        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Pra�a da S�\", \"complemento\": \"lado �mpar\", \"bairro\": \"S�\", \"localidade\": \"S�o Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
+			        .withBody("Praca da Se")));
+			       // .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Pra�a da S�\", \"complemento\": \"lado �mpar\", \"bairro\": \"S�\", \"localidade\": \"S�o Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
 	 }
 	 
 		@AfterClass
