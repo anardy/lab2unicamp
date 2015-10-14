@@ -29,7 +29,7 @@ public class RunEnderecoTest {
 	
 	 @BeforeClass
 		public static void runBeforeClass(){
-	    	WireMockServer wireMockServer = new WireMockServer(wireMockConfig().port(8089));
+	    	wireMockServer = new WireMockServer(wireMockConfig().port(8089));
 			configureFor(8089);
 			wireMockServer.start();
 		
@@ -37,7 +37,6 @@ public class RunEnderecoTest {
 			        .willReturn(aResponse()
 			        .withHeader("Content-Type", "text/plain")
 			        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
-		
 		while(1==1);
 	 }
 	 
