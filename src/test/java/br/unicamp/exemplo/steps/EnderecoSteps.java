@@ -1,9 +1,12 @@
 package br.unicamp.exemplo.steps;
 
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-
 import br.unicamp.exemplo.Endereco;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
@@ -27,12 +30,15 @@ public class EnderecoSteps {
     }
 
     @Quando("^O sistema faz a busca do endereco nos correios$")
-    public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable {
-		
+    public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable { 
     }
 
     @Entao("^Os correios retorna o endereco completo do usuario \"([^\"]*)\"$")
     public void os_correios_retorna_o_endereco_completo_do_usuario(String endereco) throws Throwable {
+		stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
+		        .willReturn(aResponse()
+		        .withHeader("Content-Type", "text/plain")
+		        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praca da Se\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
         assertEquals(endereco, this.endereco.getEndereco());
     }
     

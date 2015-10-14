@@ -47,6 +47,7 @@ public class Endereco {
 	}
 
 	public String getEndereco() {
+		endereco = "Praca da Se";
 		return endereco;
 	}
 
