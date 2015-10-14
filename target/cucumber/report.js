@@ -7,15 +7,15 @@ formatter.feature({
   "line": 1
 });
 formatter.before({
-  "duration": 14734042,
+  "duration": 2194278,
   "status": "passed"
 });
 formatter.before({
-  "duration": 996369,
+  "duration": 17987189,
   "status": "passed"
 });
 formatter.before({
-  "duration": 46195,
+  "duration": 88768,
   "status": "passed"
 });
 formatter.scenario({
