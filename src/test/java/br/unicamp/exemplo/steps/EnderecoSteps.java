@@ -35,15 +35,7 @@ public class EnderecoSteps {
 
     @Quando("^O sistema faz a busca do endereco nos correios$")
     public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable {
-    	try{
-		stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
-		        .willReturn(aResponse()
-		        .withHeader("Content-Type", "text/plain")
-		        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
 		endereco.buscar();
-    	} catch(Throwable t){
-    		throwable = t;
-    	}
     }
 
     @Entao("^Os correios retorna o endereco completo do usuario \"([^\"]*)\"$")
@@ -52,7 +44,6 @@ public class EnderecoSteps {
     }
     
     // o sistema salva o endereco na base de dados chamando o metodo que esta no DAO
-    
     // fazer um teste passando um CEP invalido e lanÃ§a a classe CEPInvalidoException 
     
     
