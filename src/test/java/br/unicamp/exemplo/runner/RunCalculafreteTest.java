@@ -31,13 +31,6 @@ public class RunCalculafreteTest {
 	    	WireMockServer wireMockServer = new WireMockServer(wireMockConfig().port(8089));
 			configureFor(8089);
 			wireMockServer.start();
-			
-			stubFor(get(urlEqualTo("/viacep/"))
-			        .willReturn(aResponse()
-			        .withHeader("Content-Type", "text/plain")
-			        .withBody("Hello world!")));
-			
-			while(1==1);
 	}
 
 		@AfterClass

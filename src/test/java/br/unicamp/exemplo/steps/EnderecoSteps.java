@@ -1,17 +1,19 @@
 package br.unicamp.exemplo.steps;
 
-
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+
+import br.unicamp.comprefacil.dao.DadosDeEntregaDAO;
 import br.unicamp.exemplo.Endereco;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Entao;
+
 
 public class EnderecoSteps {
 
@@ -35,10 +37,14 @@ public class EnderecoSteps {
 
     @Entao("^Os correios retorna o endereco completo do usuario \"([^\"]*)\"$")
     public void os_correios_retorna_o_endereco_completo_do_usuario(String endereco) throws Throwable {
+    	try{
 		stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
 		        .willReturn(aResponse()
 		        .withHeader("Content-Type", "text/plain")
 		        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praca da Se\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
+    	} catch(Throwable t){
+    		throwable = t;
+    	}
         assertEquals(endereco, this.endereco.getEndereco());
     }
     

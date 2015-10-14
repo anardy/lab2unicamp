@@ -17,7 +17,7 @@ Funcionalidade: CalculaFrete
     E O diametro dos produtos sao conhecidos pelo sistema <nVlDiametro>
     Quando O sistema envia os dados aos Correios
     Entao Exibe valor e prazo de entrega
-    E Salva o valor do Frete
+    E Salva o valor do Frete e Prazo de Entrega
 
     Exemplos: 
       | nCdEmpresa | sDsSenha   | nCdServico           | sCepOrigem | sCepDestino | nVlPeso | nCdFormato   | nVlComprimento | nVlAltura | nVlLargura | nVlDiametro | sCdMaoPropria | nVlValorDeclarado | sCdAvisoRecebimento |
@@ -37,7 +37,7 @@ Funcionalidade: CalculaFrete
     E O diametro dos produtos sao conhecidos pelo sistema <nVlDiametro>
     Quando O sistema envia os dados aos Correios
     Entao Exibe valor e prazo de entrega
-    E Salva o valor do Frete
+    E Salva o valor do Frete e Prazo de Entrega
 
     Exemplos: 
       | nCdEmpresa | sDsSenha   | nCdServico           | sCepOrigem | sCepDestino | nVlPeso | nCdFormato      | nVlComprimento | nVlAltura | nVlLargura | nVlDiametro | sCdMaoPropria | nVlValorDeclarado | sCdAvisoRecebimento |
@@ -57,7 +57,7 @@ Funcionalidade: CalculaFrete
     E O diametro dos produtos sao conhecidos pelo sistema <nVlDiametro>
     Quando O sistema envia os dados aos Correios
     Entao Exibe valor do frete
-    E Salva o valor do Frete
+    E Salva o valor do Frete e Prazo de Entrega
 
     Exemplos: 
       | nCdEmpresa | sDsSenha   | nCdServico           | sCepOrigem | sCepDestino | nVlPeso | nCdFormato   | nVlComprimento | nVlAltura | nVlLargura | nVlDiametro | sCdMaoPropria | nVlValorDeclarado | sCdAvisoRecebimento |
@@ -77,7 +77,7 @@ Funcionalidade: CalculaFrete
     E O diametro dos produtos sao conhecidos pelo sistema <nVlDiametro>
     Quando O sistema envia os dados aos Correios
     Entao Exibe valor do frete
-    E Salva o valor do Frete
+    E Salva o valor do Frete e Prazo de Entrega
 
     Exemplos: 
       | nCdEmpresa | sDsSenha   | nCdServico           | sCepOrigem | sCepDestino | nVlPeso | nCdFormato      | nVlComprimento | nVlAltura | nVlLargura | nVlDiametro | sCdMaoPropria | nVlValorDeclarado | sCdAvisoRecebimento |
@@ -90,8 +90,8 @@ Funcionalidade: CalculaFrete
     E O CEP do usuario eh conhecido pelo sistema <sCepDestino>
     E O CEP da CompreFacil eh conhecido pelo sistema <sCepOrigem>
     Quando O sistema envia os dados aos Correios
-    Entao Exibe valor e prazo de entrega
-    E Salva o valor do Frete
+    Entao Exibe prazo de entrega
+    E Salva o Prazo de Entrega
 
     Exemplos: 
       | sCepOrigem | sCepDestino | nCdServico                |

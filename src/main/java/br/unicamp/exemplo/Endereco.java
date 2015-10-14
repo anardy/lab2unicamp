@@ -10,6 +10,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
+import br.unicamp.comprefacil.dao.DadosDeEntregaDAO;
+
 public class Endereco {
 
 	private String cep;

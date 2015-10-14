@@ -13,15 +13,15 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 2005421,
+  "duration": 239329896,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1254068,
+  "duration": 596917,
   "status": "passed"
 });
 formatter.before({
-  "duration": 91032,
+  "duration": 42572,
   "status": "passed"
 });
 formatter.scenario({
@@ -51,14 +51,14 @@ formatter.match({
   "location": "EnderecoSteps.setUp()"
 });
 formatter.result({
-  "duration": 174429975,
+  "duration": 242013302,
   "status": "passed"
 });
 formatter.match({
   "location": "EnderecoSteps.o_sistema_faz_a_busca_do_endereco_nos_correios()"
 });
 formatter.result({
-  "duration": 26721,
+  "duration": 37137,
   "status": "passed"
 });
 formatter.match({
@@ -71,7 +71,7 @@ formatter.match({
   "location": "EnderecoSteps.os_correios_retorna_o_endereco_completo_do_usuario(String)"
 });
 formatter.result({
-  "duration": 687232198,
+  "duration": 737212383,
   "status": "passed"
 });
 });

@@ -1,25 +1,38 @@
 package br.unicamp.exemplo.steps;
 
 
+import org.mockito.Matchers;
+import org.mockito.Mockito;
+
+import br.unicamp.comprefacil.dao.DadosDeEntregaDAO;
 import br.unicamp.exemplo.Calculafrete;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.it.Quando;
 import cucumber.api.java.pt.Entao;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyDouble;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 public class CalculafreteSteps {
 
+	private double valorFrete;
+	private int diasEntrega;
     private Throwable throwable;
     private Calculafrete calculafrete;
+    private DadosDeEntregaDAO mock;
     
     @Before
     public void setUp() {
-    	// não precisa desse Mock aqui.. mas só para deixar de exemplo de como faz.. vamos usar no calculo de frete
-//    	calculafrete = new Calculafrete();
-//    	throwable = null;
-//    	
-//    	LinkedList carrinho = mock(LinkedList.class);
-//    	when(mockedList.get(0)).thenReturn("first");
+    	calculafrete = new Calculafrete(mock);
+    	throwable = null;
     }
 
     @Dado("^Usuario ja adicionou ao carrinho no minimo um produto$")
@@ -85,20 +98,45 @@ public class CalculafreteSteps {
     @Quando("^O sistema envia os dados aos Correios$")
     public void o_sistema_envia_os_dados_aos_Correios() throws Throwable {
         
-        
     }
 
     @Entao("^Exibe valor e prazo de entrega$")
-    public void exibe_valor_e_prazo_de_entrega() throws Throwable {
-        
-        
+    public void exibe_valor_e_prazo_de_entrega(double valorFrete, int diasEntrega) throws Throwable {
+    	try{
+		stubFor(get(urlEqualTo("/calculafrete/ValorePrazo"))
+		        .willReturn(aResponse()
+		        .withHeader("Content-Type", "text/plain")
+		        .withBody("Hello world!")));
+    	} catch(Throwable t){
+    		throwable = t;
+    	}
+    	assertEquals(valorFrete, this.calculafrete.getValorFrete());
+    	assertEquals(diasEntrega, this.calculafrete.getDiasEntrega());
     }
 
-    @Entao("^Salva o valor do Frete$")
-    public void salva_o_valor_do_Frete() throws Throwable {
-        
-        
+    @Entao("^Salva o valor do Frete e Prazo de Entrega$")
+    public void salva_o_valor_do_Frete_e_Prazo_de_Entrega(double valorFrete, int diasEntrega) throws Throwable {
+        Mockito.verify(mock, times(1)).saveDadosDeEntrega(Matchers.eq(calculafrete.getValorFrete()), Matchers.eq(calculafrete.getDiasEntrega()));
     }
+    
+    @Entao("^Exibe prazo de entrega$")
+    public void exibe_prazo_de_entrega(int diasEntrega) throws Throwable {
+    	try{
+		stubFor(get(urlEqualTo("/calculafrete/Prazo"))
+		        .willReturn(aResponse()
+		        .withHeader("Content-Type", "text/plain")
+		        .withBody("Hello world!")));
+    	} catch(Throwable t){
+    		throwable = t;
+    	}
+    	assertEquals(diasEntrega, this.calculafrete.getDiasEntrega());
+    }
+    
+    @Entao("^Salva o Prazo de Entrega$")
+    public void salva_o_Prazo_de_Entrega(int diasEntrega) throws Throwable {
+        Mockito.verify(mock, times(1)).saveDadosDeEntrega(Matchers.eq(calculafrete.getDiasEntrega()));
+    }
+
 
     @Dado("^Informou o tipo de servico de entrega (\\d+) \\(SEDEX Varejo\\)$")
     public void informou_o_tipo_de_servico_de_entrega_SEDEX_Varejo(int arg1) throws Throwable {
