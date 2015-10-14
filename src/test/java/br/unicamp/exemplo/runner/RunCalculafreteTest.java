@@ -2,6 +2,8 @@ package br.unicamp.exemplo.runner;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -9,6 +11,8 @@ import org.junit.runner.RunWith;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 
+
+import com.github.tomakehurst.wiremock.client.WireMock;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -27,8 +31,8 @@ public class RunCalculafreteTest {
 	    	WireMockServer wireMockServer = new WireMockServer(wireMockConfig().port(8089));
 			configureFor(8089);
 			wireMockServer.start();
-		}
-		
+	}
+
 		@AfterClass
 		public static void runAfterClass(){
 			wireMockServer.stop();

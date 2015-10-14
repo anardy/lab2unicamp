@@ -5,4 +5,4 @@ Feature: Endereco
 Scenario: Buscar endereco
 	Dado O CEP do usuario e conhecido pelo sistema
 	Quando O sistema faz a busca do endereco nos correios
-	Entao Os correios retorna o endereco completo do usuario "PraÃ§a da Se"
+	Entao Os correios retorna o endereco completo do usuario "Praça da Se"
