@@ -1,6 +1,10 @@
 package br.unicamp.exemplo.runner;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 
 import org.junit.AfterClass;
@@ -8,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+
 
 
 import cucumber.api.CucumberOptions;
@@ -20,6 +25,7 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:features/Endereco.feature"
 )
 public class RunEnderecoTest {
+	
 	private static WireMockServer wireMockServer;
 	
 	 @BeforeClass
