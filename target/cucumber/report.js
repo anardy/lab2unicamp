@@ -7,20 +7,20 @@ formatter.feature({
   "line": 1
 });
 formatter.before({
-  "duration": 14734042,
+  "duration": 1227462,
   "status": "passed"
 });
 formatter.before({
-  "duration": 996369,
+  "duration": 1346036,
   "status": "passed"
 });
 formatter.before({
-  "duration": 46195,
+  "duration": 64579,
   "status": "passed"
 });
 formatter.scenario({
   "id": "endereco;buscar-endereco",
-  "description": "Dado O CEP do usuario e conhecido pelo sistema\r\nQuando O sistema faz a busca do endereco nos correios\r\nEntao Os correios retorna o endereco completo do usuario \"Pra�a da Se\"",
+  "description": "Dado O CEP do usuario e conhecido pelo sistema\r\nQuando O sistema faz a busca do endereco nos correios\r\nEntao Os correios retorna o endereco completo do usuario {\"cep\": \"01001-000\", \"logradouro\": \"Praï¿½a da Sï¿½\", \"complemento\": \"lado ï¿½mpar\", \"bairro\": \"Sï¿½\", \"localidade\": \"Sï¿½o Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}",
   "name": "Buscar endereco",
   "keyword": "Scenario",
   "line": 5,

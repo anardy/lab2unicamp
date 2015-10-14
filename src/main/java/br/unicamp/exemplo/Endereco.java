@@ -19,7 +19,7 @@ public class Endereco {
 		// TODO: utilizar o WireMock para fazer mock desse serviço.
 		StringBuffer result = new StringBuffer();
 		HttpClient client = HttpClientBuilder.create().build();
-		String url = "http://localhost:8089/viacep/..."; // URL DO WIREMOCK
+		String url = "http://localhost:8089/viacep/ws/01001000/json/"; // URL DO WIREMOCK
 		HttpGet request = new HttpGet(url);
 		try {
 			HttpResponse response = client.execute(request);

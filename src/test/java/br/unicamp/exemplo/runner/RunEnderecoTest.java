@@ -29,15 +29,14 @@ public class RunEnderecoTest {
 	
 	 @BeforeClass
 		public static void runBeforeClass(){
-	    	WireMockServer wireMockServer = new WireMockServer(wireMockConfig().port(8089));
+	    	wireMockServer = new WireMockServer(wireMockConfig().port(8089));
 			configureFor(8089);
 			wireMockServer.start();
 		
 			stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
 			        .willReturn(aResponse()
 			        .withHeader("Content-Type", "text/plain")
-			        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
-		while(1==1);
+			        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praï¿½a da Sï¿½\", \"complemento\": \"lado ï¿½mpar\", \"bairro\": \"Sï¿½\", \"localidade\": \"Sï¿½o Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
 	 }
 	 
 		@AfterClass
