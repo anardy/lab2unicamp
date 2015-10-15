@@ -7,4 +7,7 @@ Funcionalidade: Endereco
 Cenario: Buscar endereco
 	Dado O CEP do usuario e conhecido pelo sistema
 	Quando O sistema faz a busca do endereco nos correios
-	Entao Os correios retorna o endereco completo do usuario "Praca da Se"
+	Entao Os correios retorna o endereco completo do usuario
+	"""
+	{"cep": "01001-000", "logradouro": "Praça da Sé", "complemento": "lado ímpar", "bairro": "Sé", "localidade": "São Paulo", "uf": "SP", "ibge": "3550308"}
+	"""

@@ -10,8 +10,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-import br.unicamp.comprefacil.dao.DadosDeEntregaDAO;
-
 public class Endereco {
 
 	private String cep;
@@ -37,7 +35,7 @@ public class Endereco {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.setEndereco(result.toString());
+		setEndereco(result.toString());
 	}
 
 	public String getCep() {
@@ -49,7 +47,6 @@ public class Endereco {
 	}
 
 	public String getEndereco() {
-		endereco = "Praca da Se";
 		return endereco;
 	}
 

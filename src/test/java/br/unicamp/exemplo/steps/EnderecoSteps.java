@@ -32,19 +32,20 @@ public class EnderecoSteps {
     }
 
     @Quando("^O sistema faz a busca do endereco nos correios$")
-    public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable { 
+    public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable {
+    	try{
+    		stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
+    		        .willReturn(aResponse()
+    		        .withHeader("Content-Type", "text/plain")
+    		        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Pra√ßa da S√©\", \"complemento\": \"lado √≠mpar\", \"bairro\": \"S√©\", \"localidade\": \"S√£o Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
+        	} catch(Throwable t){
+        		throwable = t;
+        	}
+    	endereco.buscar();
     }
 
-    @Entao("^Os correios retorna o endereco completo do usuario \"([^\"]*)\"$")
+    @Entao("^Os correios retorna o endereco completo do usuario$")
     public void os_correios_retorna_o_endereco_completo_do_usuario(String endereco) throws Throwable {
-    	try{
-		stubFor(get(urlEqualTo("/viacep/ws/01001000/json/"))
-		        .willReturn(aResponse()
-		        .withHeader("Content-Type", "text/plain")
-		        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praca da Se\", \"complemento\": \"lado Ìmpar\", \"bairro\": \"SÈ\", \"localidade\": \"S„o Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
-    	} catch(Throwable t){
-    		throwable = t;
-    	}
         assertEquals(endereco, this.endereco.getEndereco());
     }
     

@@ -13,15 +13,15 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 239329896,
+  "duration": 774072,
   "status": "passed"
 });
 formatter.before({
-  "duration": 596917,
+  "duration": 466115,
   "status": "passed"
 });
 formatter.before({
-  "duration": 42572,
+  "duration": 1329349,
   "status": "passed"
 });
 formatter.scenario({
@@ -43,35 +43,34 @@ formatter.step({
   "line": 9
 });
 formatter.step({
-  "name": "Os correios retorna o endereco completo do usuario \"Praca da Se\"",
+  "name": "Os correios retorna o endereco completo do usuario",
   "keyword": "Entao ",
-  "line": 10
+  "line": 10,
+  "doc_string": {
+    "value": "{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}",
+    "line": 11,
+    "content_type": ""
+  }
 });
 formatter.match({
   "location": "EnderecoSteps.setUp()"
 });
 formatter.result({
-  "duration": 242013302,
+  "duration": 137499299,
   "status": "passed"
 });
 formatter.match({
   "location": "EnderecoSteps.o_sistema_faz_a_busca_do_endereco_nos_correios()"
 });
 formatter.result({
-  "duration": 37137,
+  "duration": 487657291,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "Praca da Se",
-      "offset": 52
-    }
-  ],
   "location": "EnderecoSteps.os_correios_retorna_o_endereco_completo_do_usuario(String)"
 });
 formatter.result({
-  "duration": 737212383,
+  "duration": 3453308,
   "status": "passed"
 });
 });
