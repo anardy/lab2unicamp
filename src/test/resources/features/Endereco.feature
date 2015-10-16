@@ -15,7 +15,7 @@ Cenario: Buscar endereco
 	{"cep": "01001-000", "logradouro": "Praça da Sé", "complemento": "lado ímpar", "bairro": "Sé", "localidade": "São Paulo", "uf": "SP", "ibge": "3550308"}
 	"""
 Cenario: Buscar endereco Invalido
-	Dado O CEP do usuario nao é conhecido pelo sistema
+	Dado O CEP do usuario nao e conhecido pelo sistema
 	""""
 	8888888
 	"""

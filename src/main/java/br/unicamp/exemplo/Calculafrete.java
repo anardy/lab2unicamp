@@ -1,5 +1,16 @@
 package br.unicamp.exemplo;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+
 import br.unicamp.comprefacil.dao.DadosDeEntregaDAO;
 
 public class Calculafrete {
@@ -26,6 +37,30 @@ public class Calculafrete {
 	
 	public void salvar(double valorFrete, int diasEntrega){
 		dao.saveDadosDeEntrega(valorFrete, diasEntrega);
+	}
+	
+	public void calculaPrazoFrete(List<Calculafrete> dados) {
+		StringBuffer result = new StringBuffer();
+		HttpClient client = HttpClientBuilder.create().build();
+		String url = "http://localhost:8089/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?nCdServico=40010";
+		HttpGet request = new HttpGet(url);
+		try {
+			HttpResponse response = client.execute(request);
+			BufferedReader rd = new BufferedReader(new InputStreamReader(
+					response.getEntity().getContent()));
+
+			
+			String line = "";
+			while ((line = rd.readLine()) != null) {
+				result.append(line);
+			}
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(result.toString());
 	}
 	
 	public String getnCdServico() {
