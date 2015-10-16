@@ -14,6 +14,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.it.Quando;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
@@ -38,58 +39,15 @@ public class CalculafreteSteps {
     
     @Before
     public void setUp() {
+    	mock = mock(DadosDeEntregaDAO.class);
     	calculafrete = new Calculafrete(mock);
     	throwable = null;
     }
     
-    @Dado("^Informou o tipo de servico de entrega$")
-    public void informou_o_tipo_de_servico_de_entrega() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Dado("^Usuario ja adicionou ao carrinho no minimo um produto$")
+    public void usuario_ja_adicionou_ao_carrinho_no_minimo_um_produto() throws Throwable {
     }
-
-    @Dado("^O CEP do usuario deve ser validado pelos correios$")
-    public void o_CEP_do_usuario_deve_ser_validado_pelos_correios() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Dado("^O CEP da CompreFacil e conhecido pelo sistema$")
-    public void o_CEP_da_CompreFacil_e_conhecido_pelo_sistema() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Dado("^O peso do produto e conhecido pelo sistema$")
-    public void o_peso_do_produto_e_conhecido_pelo_sistema() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Dado("^O comprimento dos produtos sao conhecidos pelo sistema$")
-    public void o_comprimento_dos_produtos_sao_conhecidos_pelo_sistema() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Dado("^A altura dos produtos sao conhecidas pelo sistema$")
-    public void a_altura_dos_produtos_sao_conhecidas_pelo_sistema() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Dado("^A largura dos produtos sao conhecidas pelos sistema$")
-    public void a_largura_dos_produtos_sao_conhecidas_pelos_sistema() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Dado("^O diametro dos produtos sao conhecidos pelo sistema$")
-    public void o_diametro_dos_produtos_sao_conhecidos_pelo_sistema() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
+    
     @Quando("^O sistema envia os dados aos Correios$")
     public void o_sistema_envia_os_dados_aos_Correios() throws Throwable {
     	try{
@@ -110,13 +68,15 @@ public class CalculafreteSteps {
         	}
     }
 
-    @Entao("^Exibe valor e prazo de entrega$")
+    @E("^Exibe valor e prazo de entrega$")
     public void exibe_valor_e_prazo_de_entrega(List<Calculafrete> dados) throws Throwable {
-        System.out.println(dados.get(0).getDiasEntrega());
+    	calculafrete.setValorFrete(dados.get(0).getValorFrete());
+    	calculafrete.setDiasEntrega(dados.get(0).getDiasEntrega());
     }
 
     @Entao("^Salva o valor do Frete e Prazo de Entrega$")
     public void salva_o_valor_do_Frete_e_Prazo_de_Entrega() throws Throwable {
+    	calculafrete.salvar(calculafrete.getValorFrete(), calculafrete.getDiasEntrega());
     	Mockito.verify(mock, times(1)).saveDadosDeEntrega(Matchers.eq(calculafrete.getValorFrete()), Matchers.eq(calculafrete.getDiasEntrega()));
     }
 
