@@ -12,7 +12,7 @@ public class Calculafrete {
 		this.dao = dao;		
 	}
 	
-	public void salvar(Double valorFrete, Integer diasEntrega){
+	public void salvar(double valorFrete, int diasEntrega){
 		dao.saveDadosDeEntrega(valorFrete, diasEntrega);
 	}
 
