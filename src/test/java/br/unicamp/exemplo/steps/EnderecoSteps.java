@@ -37,7 +37,7 @@ public class EnderecoSteps {
     	}
     }
     
-    @Dado("^O CEP do usuario nao é conhecido pelo sistema$")
+    @Dado("^O CEP do usuario nao e conhecido pelo sistema$")
     public void o_CEP_do_usuario_nao_e_conhecido_pelo_sistema(String arg1) throws Throwable {
     	try{
     	stubFor(get(WireMock.urlMatching("/viacep/ws/.*/json/"))
