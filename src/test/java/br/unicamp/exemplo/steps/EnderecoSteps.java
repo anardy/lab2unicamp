@@ -52,27 +52,7 @@ public class EnderecoSteps {
 
     @Quando("^O sistema faz a busca do endereco nos correios$")
     public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable {
-    	StringBuffer result = new StringBuffer();
-		HttpClient client = HttpClientBuilder.create().build();
-		String url = "http://localhost:8089/viacep/ws/01001000/json/";
-		HttpGet request = new HttpGet(url);
-		try {
-			HttpResponse response = client.execute(request);
-			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					response.getEntity().getContent()));
-
-			
-			String line = "";
-			while ((line = rd.readLine()) != null) {
-				result.append(line);
-			}
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		endereco.setEndereco(result.toString());
+    	endereco.buscarEndereco();
     }
 
     @Entao("^Os correios retorna o endereco completo do usuario$")
