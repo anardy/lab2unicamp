@@ -1,3 +1,4 @@
+
 package br.unicamp.exemplo.steps;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
@@ -52,21 +53,7 @@ public class EnderecoSteps {
 
     @Quando("^O sistema faz a busca do endereco nos correios$")
     public void o_sistema_faz_a_busca_do_endereco_nos_correios() throws Throwable {
-<<<<<<< HEAD
-    	try{
-    		stubFor(get(urlEqualTo("/viacep/ws/"+this.endereco.getCep()+"/json/"))
-    		        .willReturn(aResponse()
-    		        .withHeader("Content-Type", "application/json")
-    		        .withStatus(200)
-    		        .withBody("{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}")));
-    		endereco.buscar();
-        	} catch(Throwable t){
-        		throwable = t;
-        	}
-    	
-=======
     	endereco.buscarEndereco();
->>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
     }
 
     @Entao("^Os correios retorna o endereco completo do usuario$")
@@ -75,27 +62,8 @@ public class EnderecoSteps {
     }
     
 
-<<<<<<< HEAD
-    @Dado("^O CEP do usuario nao é conhecido pelo sistema$")
-    public void o_CEP_do_usuario_nao_e_conhecido_pelo_sistema(String cep) throws Throwable {
-    	endereco.setCep(cep);
-    }
-
-    @Entao("^Os correios retorna um erro com a mensagem$")
-    public void os_correios_retorna_um_erro_com_a_mensagem(String arg1) throws Throwable {
-    	try{
-    		stubFor(get(urlEqualTo("/viacep/ws/"+this.endereco.getCep()+"/json/"))
-    		        .willReturn(aResponse()
-    		        .withStatus(400)
-    		        .withBody("{\"error\": \"true\"}")));
-    		endereco.buscar();
-        	} catch(Throwable t){
-        		throwable = t;
-        	}
-=======
     @Entao("^Os correios retorna um erro com a mensagem$")
     public void os_correios_retorna_um_erro_com_a_mensagem(String endereco) throws Throwable {
     	assertEquals(endereco, this.endereco.getEndereco());
->>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
     }
 }
