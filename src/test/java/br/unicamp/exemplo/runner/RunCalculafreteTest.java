@@ -18,7 +18,7 @@ public class RunCalculafreteTest {
 
 	@BeforeClass
 	public static void runBeforeClass() {
-		WireMockServer wireMockServer = new WireMockServer(wireMockConfig()
+		wireMockServer = new WireMockServer(wireMockConfig()
 				.port(8089));
 		configureFor(8089);
 		wireMockServer.start();
