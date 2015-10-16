@@ -7,7 +7,6 @@ Funcionalidade: CalculaFrete
 Cenario: Calculo de Preco e Prazo de entrega do Frete
     Dado Usuario ja adicionou ao carrinho no minimo um produto
     E Informou o tipo de servico de entrega
-    E O CEP do usuario e conhecido pelo sistema
 	E O CEP do usuario deve ser validado pelos correios
     E O CEP da CompreFacil e conhecido pelo sistema
     E O peso do produto e conhecido pelo sistema
