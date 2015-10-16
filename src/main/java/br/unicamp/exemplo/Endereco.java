@@ -12,10 +12,17 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 public class Endereco {
 
-	private String cep;
 	private String endereco;
 
-	public void buscar() {
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	public void buscarEndereco() {
 		StringBuffer result = new StringBuffer();
 		HttpClient client = HttpClientBuilder.create().build();
 		String url = "http://localhost:8089/viacep/ws/01001000/json/";
@@ -35,23 +42,8 @@ public class Endereco {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		setEndereco(result.toString());
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
 	}
 
 }

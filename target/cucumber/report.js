@@ -155,6 +155,7 @@ formatter.examples({
   ]
 });
 formatter.before({
+<<<<<<< HEAD
   "duration": 2192920,
   "status": "passed"
 });
@@ -164,6 +165,17 @@ formatter.before({
 });
 formatter.before({
   "duration": 794379,
+=======
+  "duration": 1154221,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 1107093,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 408940,
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
   "status": "passed"
 });
 formatter.scenario({
@@ -175,9 +187,18 @@ formatter.scenario({
   "type": "scenario"
 });
 formatter.step({
+<<<<<<< HEAD
   "name": "Usuario ja adicionou ao carrinho no minimo um produto",
+=======
+  "name": "O CEP do usuario e conhecido pelo sistema",
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
   "keyword": "Dado ",
-  "line": 8
+  "line": 8,
+  "doc_string": {
+    "value": "01001000",
+    "line": 9,
+    "content_type": "\""
+  }
 });
 formatter.step({
   "name": "Informou o tipo de servico de entrega 41106",
@@ -254,11 +275,16 @@ formatter.step({
 formatter.step({
   "name": "O sistema envia os dados aos Correios",
   "keyword": "Quando ",
+<<<<<<< HEAD
   "line": 18
+=======
+  "line": 12
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
 });
 formatter.step({
   "name": "Exibe valor e prazo de entrega \u003cvalorFrete\u003e \u003cdiasEntrega\u003e",
   "keyword": "Entao ",
+<<<<<<< HEAD
   "line": 19
 });
 formatter.step({
@@ -271,6 +297,20 @@ formatter.match({
 });
 formatter.result({
   "duration": 185479265,
+=======
+  "line": 13,
+  "doc_string": {
+    "value": "{\"cep\": \"01001-000\", \"logradouro\": \"Praça da Sé\", \"complemento\": \"lado ímpar\", \"bairro\": \"Sé\", \"localidade\": \"São Paulo\", \"uf\": \"SP\", \"ibge\": \"3550308\"}",
+    "line": 14,
+    "content_type": ""
+  }
+});
+formatter.match({
+  "location": "EnderecoSteps.o_cep_do_usuario_e_conhecido_pelo_sistema(String)"
+});
+formatter.result({
+  "duration": 623384233,
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
   "status": "passed"
 });
 formatter.match({
@@ -283,6 +323,7 @@ formatter.match({
   "location": "CalculafreteSteps.informou_o_tipo_de_servico_de_entrega(int)"
 });
 formatter.result({
+<<<<<<< HEAD
   "duration": 9617235,
   "status": "passed"
 });
@@ -297,6 +338,9 @@ formatter.match({
 });
 formatter.result({
   "duration": 138134,
+=======
+  "duration": 65925046,
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
   "status": "passed"
 });
 formatter.match({
@@ -309,6 +353,7 @@ formatter.match({
   "location": "CalculafreteSteps.o_CEP_do_usuario_deve_ser_validado_pelos_correios(int)"
 });
 formatter.result({
+<<<<<<< HEAD
   "duration": 91485,
   "status": "passed"
 });
@@ -444,6 +489,40 @@ formatter.step({
   "matchedColumns": [
     2
   ]
+=======
+  "duration": 2165386,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 38403,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 28499,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 29844,
+  "status": "passed"
+});
+formatter.scenario({
+  "id": "endereco;buscar-endereco-invalido",
+  "description": "",
+  "name": "Buscar endereco Invalido",
+  "keyword": "Cenario",
+  "line": 17,
+  "type": "scenario"
+});
+formatter.step({
+  "name": "O CEP do usuario nao é conhecido pelo sistema",
+  "keyword": "Dado ",
+  "line": 18,
+  "doc_string": {
+    "value": "8888888",
+    "line": 19,
+    "content_type": "\""
+  }
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
 });
 formatter.step({
   "name": "O CEP do usuario e conhecido pelo sistema 134068466",
@@ -512,11 +591,16 @@ formatter.step({
 formatter.step({
   "name": "O sistema envia os dados aos Correios",
   "keyword": "Quando ",
+<<<<<<< HEAD
   "line": 18
+=======
+  "line": 22
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
 });
 formatter.step({
   "name": "Exibe valor e prazo de entrega \u003cvalorFrete\u003e \u003cdiasEntrega\u003e",
   "keyword": "Entao ",
+<<<<<<< HEAD
   "line": 19
 });
 formatter.step({
@@ -542,6 +626,20 @@ formatter.match({
 });
 formatter.result({
   "duration": 152173,
+=======
+  "line": 23,
+  "doc_string": {
+    "value": "{\"erro\": \"endereco invalido\"}",
+    "line": 24,
+    "content_type": ""
+  }
+});
+formatter.match({
+  "location": "EnderecoSteps.o_CEP_do_usuario_nao_é_conhecido_pelo_sistema(String)"
+});
+formatter.result({
+  "duration": 32286307,
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
   "status": "passed"
 });
 formatter.match({
@@ -580,6 +678,7 @@ formatter.match({
   "location": "CalculafreteSteps.o_CEP_da_CompreFacil_conhecido_pelo_sistema(int)"
 });
 formatter.result({
+<<<<<<< HEAD
   "duration": 227807,
   "status": "passed"
 });
@@ -668,14 +767,22 @@ formatter.match({
 });
 formatter.result({
   "duration": 35256102,
+=======
+  "duration": 11174323,
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
   "status": "passed"
 });
 formatter.match({
   "location": "CalculafreteSteps.salva_o_valor_do_Frete_e_Prazo_de_Entrega_valorFrete_diasEntrega()"
 });
 formatter.result({
+<<<<<<< HEAD
   "duration": 649905,
   "status": "failed",
   "error_message": "org.mockito.exceptions.misusing.NullInsteadOfMockException: \nArgument passed to verify() should be a mock but is null!\nExamples of correct verifications:\n    verify(mock).someMethod();\n    verify(mock, times(10)).someMethod();\n    verify(mock, atLeastOnce()).someMethod();\n    not: verify(mock.someMethod());\nAlso, if you use @Mock annotation don\u0027t miss initMocks()\r\n\tat br.unicamp.exemplo.steps.CalculafreteSteps.salva_o_valor_do_Frete_e_Prazo_de_Entrega_valorFrete_diasEntrega(CalculafreteSteps.java:132)\r\n\tat ✽.E Salva o valor do Frete e Prazo de Entrega \u003cvalorFrete\u003e \u003cdiasEntrega\u003e(features/Calculafrete.feature:20)\r\n"
+=======
+  "duration": 64369,
+  "status": "passed"
+>>>>>>> f925c3cd9119064950c5faa3c401cb9a3bbdec20
 });
 });
