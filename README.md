@@ -16,6 +16,6 @@ git pull
 
 git push
 
-# Para ver a status
+# Para ver o status
 
 git status
