@@ -1,4 +1,4 @@
-Help
+#Help
 
 # Para baixar o projeto
 
@@ -10,7 +10,11 @@ git add .
 
 git commit -a -m "comentario"
 
-git push -u origin master 
+git pull
+
+(Faça o merge!!!) 
+
+git push
 
 # Para ver a status
 
