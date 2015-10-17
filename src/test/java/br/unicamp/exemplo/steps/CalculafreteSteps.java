@@ -18,6 +18,7 @@ import cucumber.api.java.pt.Entao;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 
@@ -45,29 +46,31 @@ public class CalculafreteSteps {
     	try{
     		stubFor(get(WireMock.urlMatching("/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo.*"))
     				.withQueryParam("nCdServico", WireMock.equalTo("40010"))
-    				/*.withQueryParam("sCepOrigem", WireMock.equalTo("11092899"))
+    				.withQueryParam("sCepOrigem", WireMock.equalTo("11092899"))
     				.withQueryParam("sCepDestino", WireMock.equalTo("126003928"))
     				.withQueryParam("nVlPeso", WireMock.equalTo("0,5"))
     				.withQueryParam("nVlComprimento", WireMock.equalTo("23"))
     				.withQueryParam("nVlAltura", WireMock.equalTo("0"))
-    				.withQueryParam("nVlLargura", WireMock.equalTo("6,7"))*/
+    				.withQueryParam("nVlLargura", WireMock.equalTo("6,7"))
     		        .willReturn(aResponse()
     		        .withHeader("Content-Type", "application/xml")
     		        .withStatus(200)
-    		        .withBody("<?xml version=\"1.0\" encoding=\"utf-8\"?> <cResultado xmlns=\"http:/tempuri.org/\"> <Servicos> <cServico> <Codigo>41106</Codigo> <Valor>12,50</Valor> <PrazoEntrega>3</PrazoEntrega> <ValorMaoPropria>1</ValorMaoPropria> <ValorAvisoRecebimento>1</ValorAvisoRecebimento> <ValorValorDeclarado>0</ValorValorDeclarado> <EntregaDomiciliar>false</EntregaDomiciliar> <EntregaSabado>true</EntregaSabado> <Erro>0</Erro> <MsgErro>0</MsgErro> <ValorSemAdicionais>12,50</ValorSemAdicionais> <obsFim></obsFim> </cServico> </Servicos> </cResultado>")));
+    		        .withBody("<?xml version=\"1.0\" encoding=\"utf-8\"?> <cResultado xmlns=\"http:/tempuri.org/\"> <Servicos> <cServico> <Codigo>41106</Codigo> <Valor>12,50</Valor> <PrazoEntrega>3</PrazoEntrega> <ValorMaoPropria>1</ValorMaoPropria> <ValorAvisoRecebimento>1</ValorAvisoRecebimento> <ValorValorDeclarado>0</ValorValorDeclarado> <EntregaDomiciliar>false</EntregaDomiciliar> <EntregaSabado>true</EntregaSabado> <Erro>0</Erro> <MsgErro>0</MsgErro> <ValorSemAdicionais>12</ValorSemAdicionais> <obsFim></obsFim> </cServico> </Servicos> </cResultado>")));
         	} catch(Throwable t){
         		throwable = t;
         	}
-    	calculafrete.calculaPrazoFrete(dados);
     }
 
     @Entao("^O correios retorna os valores de Frete e Prazo de Entrega$")
-    public void o_correios_retorna_os_valores_de_frete_e_prazo_de_entrega() throws Throwable {
-    	
+    public void o_correios_retorna_os_valores_de_frete_e_prazo_de_entrega(String retorno) throws Throwable {
+    	assertEquals(retorno, calculafrete.calculaPrazoFrete());
     }
     
-    @E("^Exibe valor e prazo de entrega$")
-    public void exibe_valor_e_prazo_de_entrega() throws Throwable {
+  
+    @E("^Exibe valor e prazo de entrega (\\d+) (\\d+)$")
+    public void exibe_valor_e_prazo_de_entrega(int arg1, int arg3) throws Throwable {
+    	calculafrete.setValorFrete(arg1);
+        calculafrete.setDiasEntrega(arg3);
     }
 
     @E("^Salva o valor do Frete e Prazo de Entrega$")

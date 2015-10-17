@@ -39,10 +39,10 @@ public class Calculafrete {
 		dao.saveDadosDeEntrega(valorFrete, diasEntrega);
 	}
 	
-	public void calculaPrazoFrete(List<Calculafrete> dados) {
+	public String calculaPrazoFrete() {
 		StringBuffer result = new StringBuffer();
 		HttpClient client = HttpClientBuilder.create().build();
-		String url = "http://localhost:8089/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?nCdServico=40010";
+		String url = "http://localhost:8089/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?nCdServico=40010&sCepOrigem=11092899&sCepDestino=126003928&nVlPeso=0,5&nVlComprimento=23&nVlAltura=0&nVlLargura=6,7";
 		HttpGet request = new HttpGet(url);
 		try {
 			HttpResponse response = client.execute(request);
@@ -60,7 +60,7 @@ public class Calculafrete {
 			e.printStackTrace();
 		}
 		
-		System.out.println(result.toString());
+		return result.toString();
 	}
 	
 	public String getnCdServico() {
